@@ -14,7 +14,7 @@ class App extends React.Component {
     cardTrunfo: false,
     hasTrunfo: false,
     isSaveButtonDisabled: true,
-    renderedCards: [],
+    savedCard: [],
   };
 
   handleChange = ({ target }) => {
@@ -26,7 +26,7 @@ class App extends React.Component {
     }, this.validateForm);
   };
 
-  handleClick(event) {
+  saveClick = (event) => {
     event.preventDefault();
     const {
       cardName,
@@ -39,7 +39,7 @@ class App extends React.Component {
       cardTrunfo,
     } = this.state;
 
-    const newCard = {
+    const propCard = {
       cardName,
       cardDescription,
       cardImage,
@@ -49,10 +49,8 @@ class App extends React.Component {
       cardAttr3,
       cardTrunfo,
     };
-    this.setState(({ renderedCards }) => ({
-      renderedCards: [...renderedCards, newCard],
-    }));
-    this.setState({
+    this.setState((prevState) => ({
+      savedCard: [...prevState.savedCard, propCard],
       cardName: '',
       cardDescription: '',
       cardImage: '',
@@ -60,8 +58,10 @@ class App extends React.Component {
       cardAttr2: '0',
       cardAttr3: '0',
       cardRare: 'normal',
-    });
-  }
+      cardTrunfo: false,
+      isSaveButtonDisabled: true,
+    }));
+  };
 
   validateForm() {
     const {
@@ -117,7 +117,7 @@ class App extends React.Component {
           hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ this.handleChange }
-          onSaveButtonClick={ this.handleClick }
+          onSaveButtonClick={ this.saveClick }
         />
         <Card
           cardName={ cardName }

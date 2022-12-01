@@ -22,8 +22,25 @@ class App extends React.Component {
 
     this.setState({
       [name]: value,
-    });
+    }, this.validateForm);
   };
+
+  validateForm() {
+    const {
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+    } = this.state;
+
+    const attrSumLimit = 210;
+
+    if ((Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3)) <= attrSumLimit) {
+      this.setState({ isSaveButtonDisabled: false });
+    } else {
+      this.setState({ isSaveButtonDisabled: true });
+    }
+  }
+
 
   render() {
     const {

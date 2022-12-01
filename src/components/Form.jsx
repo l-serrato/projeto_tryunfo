@@ -28,6 +28,7 @@ class Form extends React.Component {
             id="name"
             value={ cardName }
             onChange={ onInputChange }
+            minLength="1"
           />
         </label>
         <label htmlFor="description">
@@ -38,6 +39,7 @@ class Form extends React.Component {
             id="description"
             value={ cardDescription }
             onChange={ onInputChange }
+            minLength="1"
           />
         </label>
         <label htmlFor="attr1">
@@ -49,6 +51,7 @@ class Form extends React.Component {
             id="attr1"
             value={ cardAttr1 }
             onChange={ onInputChange }
+            max="90"
 
           />
         </label>
@@ -61,6 +64,7 @@ class Form extends React.Component {
             id="attr2"
             value={ cardAttr2 }
             onChange={ onInputChange }
+            max="90"
           />
         </label>
         <label htmlFor="attr3">
@@ -72,6 +76,7 @@ class Form extends React.Component {
             id="attr3"
             value={ cardAttr3 }
             onChange={ onInputChange }
+            max="90"
           />
         </label>
         <label htmlFor="imgLink">
@@ -83,6 +88,7 @@ class Form extends React.Component {
             id="imgLink"
             value={ cardImage }
             onChange={ onInputChange }
+            minLength="1"
           />
         </label>
         <label htmlFor="cardRare">
@@ -93,6 +99,7 @@ class Form extends React.Component {
             id="select"
             value={ cardRare }
             onChange={ onInputChange }
+            minLength="1"
           >
             <option value="normal">Normal</option>
             <option value="raro">Raro</option>

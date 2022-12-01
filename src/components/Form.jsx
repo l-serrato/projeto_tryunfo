@@ -85,7 +85,7 @@ class Form extends React.Component {
             onChange={ onInputChange }
           />
         </label>
-        <label htmlFor="select">
+        <label htmlFor="cardRare">
           Select
           <select
             data-testid="rare-input"
@@ -99,7 +99,7 @@ class Form extends React.Component {
             <option value="muito raro">Muito Raro</option>
           </select>
         </label>
-        <label htmlFor="checkBox">
+        <label htmlFor="cardTrunfo">
           Super Trunfo
           <input
             data-testid="trunfo-input"

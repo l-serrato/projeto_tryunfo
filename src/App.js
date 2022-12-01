@@ -37,6 +37,7 @@ class App extends React.Component {
       cardAttr2,
       cardAttr3,
       cardTrunfo,
+      savedCard,
     } = this.state;
 
     const propCard = {
@@ -49,6 +50,11 @@ class App extends React.Component {
       cardAttr3,
       cardTrunfo,
     };
+
+    if (savedCard.every((card) => (card.hasTrunfo))) {
+      this.setState({ hasTrunfo: true });
+    }
+
     this.setState((prevState) => ({
       savedCard: [...prevState.savedCard, propCard],
       cardName: '',

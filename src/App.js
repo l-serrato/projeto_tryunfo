@@ -27,14 +27,24 @@ class App extends React.Component {
 
   validateForm() {
     const {
+      cardName,
+      cardDescription,
       cardAttr1,
       cardAttr2,
       cardAttr3,
+      cardImage,
+      cardRare,
     } = this.state;
 
+    const attrLowerLimit = 0;
+    const attrUpperLimit = 90;
     const attrSumLimit = 210;
 
-    if ((Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3)) <= attrSumLimit) {
+    if (cardName && cardDescription && cardImage && cardRare
+      && cardAttr1 >= attrLowerLimit && cardAttr1 <= attrUpperLimit
+      && cardAttr2 >= attrLowerLimit && cardAttr2 <= attrUpperLimit
+      && cardAttr3 >= attrLowerLimit && cardAttr3 <= attrUpperLimit
+      && (Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3)) <= attrSumLimit) {
       this.setState({ isSaveButtonDisabled: false });
     } else {
       this.setState({ isSaveButtonDisabled: true });

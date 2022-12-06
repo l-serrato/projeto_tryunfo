@@ -90,6 +90,16 @@ class App extends React.Component {
     );
   };
 
+  removeCard = (selectedCard) => {
+    const { savedCard } = this.state;
+
+    this.setState({ savedCard: savedCard.filter((card) => card !== selectedCard) });
+
+    if (selectedCard.cardTrunfo) {
+      this.setState({ hasTrunfo: false });
+    }
+  };
+
   validateForm() {
     const {
       cardName,
@@ -156,6 +166,13 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        <button
+          type="button"
+          data-testid="delete-button"
+          onClick={ () => this.removeCard(savedCard) }
+        >
+          Excluir
+        </button>
         { this.cardSummoner() }
       </div>
     );

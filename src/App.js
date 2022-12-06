@@ -129,17 +129,6 @@ class App extends React.Component {
       hasTrunfo,
       isSaveButtonDisabled,
     } = this.state;
-
-    removeCard = (selectedCard) => {
-      const { savedCard } = this.state;
-
-      this.setState({ savedCard: savedCard.filter((card) => card !== selectedCard) });
-
-      if (selectedCard.cardTrunfo) {
-        this.setState({ hasTrunfo: false });
-      }
-    };
-
     return (
       <div>
         <h1>Projeto Tryunfo</h1>
@@ -168,15 +157,6 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
         />
         { this.cardSummoner() }
-
-        <button
-          type="button"
-          data-testid="delete-button"
-          onClick={ () => this.removeCard(savedCard) }
-        >
-          Excluir
-        </button>
-
       </div>
     );
   }

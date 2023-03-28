@@ -26,6 +26,16 @@ class App extends React.Component {
     }, this.validateForm);
   };
 
+  removeCard = (selectedCard) => {
+    const { savedCard } = this.state;
+    const cartes = savedCard.filter((card) => card !== selectedCard);
+    this.setState({ savedCard: cartes });
+
+    if (selectedCard.cardTrunfo) {
+      this.setState({ hasTrunfo: false });
+    }
+  };
+
   saveClick = (event) => {
     event.preventDefault();
     const {
@@ -88,16 +98,6 @@ class App extends React.Component {
         </div>
       ))
     );
-  };
-
-  removeCard = (selectedCard) => {
-    const { savedCard } = this.state;
-
-    this.setState({ savedCard: savedCard.filter((card) => card !== selectedCard) });
-
-    if (selectedCard.cardTrunfo) {
-      this.setState({ hasTrunfo: false });
-    }
   };
 
   validateForm() {
